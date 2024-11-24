@@ -1,0 +1,33 @@
+﻿@model TripPlanner.Models.Trip
+
+<h1>Create New Trip</h1>
+
+<form method="post">
+    <div class="form-group">
+        <label for="Destination">Destination</label>
+        <input type="text" class="form-control" id="Destination" name="Destination" value="@Model.Destination" required />
+        @if (ViewData.ModelState["Destination"]?.Errors.Count > 0)
+        {
+            <div class="text-danger">
+                @ViewData.ModelState["Destination"]?.Errors?.FirstOrDefault()?.ErrorMessage
+            </div>
+        }
+    </div>
+
+    <div class="form-group">
+        <label for="StartDate">Start Date</label>
+        <input type="date" class="form-control" id="StartDate" name="StartDate" value="@Model.StartDate?.ToString("yyyy-MM-dd")" />
+    </div>
+
+    <div class="form-group">
+        <label for="EndDate">End Date</label>
+        <input type="date" class="form-control" id="EndDate" name="EndDate" value="@Model.EndDate?.ToString("yyyy-MM-dd")" />
+    </div>
+
+    <div class="form-group">
+        <label for="Accommodations">Accommodations</label>
+        <input type="text" class="form-control" id="Accommodations" name="Accommodations" value="@Model.Accommodations" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Next</button>
+</form>
